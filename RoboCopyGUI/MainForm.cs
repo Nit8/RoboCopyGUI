@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RobocopyFileCopier.Services;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -14,9 +15,11 @@ namespace RoboCopyGUI
         private int copiedFiles = 0;
         private Random random = new Random(); // Reuse Random instance
         private bool isInitializing = true;
+        private LoggerService loggerService = new LoggerService();
 
         public MainForm()
         {
+            loggerService.LogInfo("Application started");
             InitializeComponent();
             this.AutoScroll = true;
             this.AutoScrollMinSize = new Size(800, 1000);
