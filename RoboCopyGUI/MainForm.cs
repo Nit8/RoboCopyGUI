@@ -142,7 +142,7 @@ namespace RoboCopyGUI
             command += $" /W:{waitTimeComboBox.SelectedItem}";
             command += $" /COPY:{copyFlagsComboBox.SelectedItem}";
 
-            commandPreviewLabel.Text = $"Command: {command.Replace("(Default)","").Replace("(Recommended)", "")}";
+            commandPreviewLabel.Text = $"Command: {command.Replace("(Default)","").Replace("(Recommended)", "").Replace("(Data, Attributes, Timestamps)","").Replace("(Everything)", "").Replace("(Data only)","")}";
         }
 
         private void browseSourceButton_Click(object sender, EventArgs e)
