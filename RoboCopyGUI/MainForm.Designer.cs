@@ -360,6 +360,7 @@ namespace RoboCopyGUI
             this.threadsComboBox.Name = "threadsComboBox";
             this.threadsComboBox.Size = new System.Drawing.Size(172, 21);
             this.threadsComboBox.TabIndex = 15;
+            this.threadsComboBox.SelectedIndexChanged += new System.EventHandler(this.threadsComboBox_SelectedIndexChanged_1);
             // 
             // retriesLabel
             // 
@@ -385,6 +386,7 @@ namespace RoboCopyGUI
             this.retriesComboBox.Name = "retriesComboBox";
             this.retriesComboBox.Size = new System.Drawing.Size(172, 21);
             this.retriesComboBox.TabIndex = 17;
+            this.retriesComboBox.SelectedIndexChanged += new System.EventHandler(this.retriesComboBox_SelectedIndexChanged);
             // 
             // toggleAdvancedButton
             // 
@@ -439,6 +441,7 @@ namespace RoboCopyGUI
             this.waitTimeComboBox.Name = "waitTimeComboBox";
             this.waitTimeComboBox.Size = new System.Drawing.Size(103, 21);
             this.waitTimeComboBox.TabIndex = 1;
+            this.waitTimeComboBox.SelectedIndexChanged += new System.EventHandler(this.waitTimeComboBox_SelectedIndexChanged);
             // 
             // copyFlagsLabel
             // 
@@ -476,6 +479,7 @@ namespace RoboCopyGUI
             this.commandPreviewLabel.Size = new System.Drawing.Size(676, 119);
             this.commandPreviewLabel.TabIndex = 20;
             this.commandPreviewLabel.Text = "Command: robocopy \"source\" \"destination\" /E /MT:8 /R:3 /W:30";
+            this.commandPreviewLabel.Click += new System.EventHandler(this.commandPreviewLabel_Click);
             // 
             // startCopyButton
             // 

@@ -140,7 +140,7 @@ namespace RoboCopyGUI
             command += $" /W:{waitTimeComboBox.SelectedItem}";
             command += $" /COPY:{copyFlagsComboBox.SelectedItem}";
 
-            commandPreviewLabel.Text = $"Command: {command}";
+            commandPreviewLabel.Text = $"Command: {command.Replace("(Default)","").Replace("(Recommended)", "")}";
         }
 
         private void browseSourceButton_Click(object sender, EventArgs e)
@@ -427,6 +427,85 @@ namespace RoboCopyGUI
             }
 
             commandPreviewLabel.Text = prefix + command.Trim();
+            UpdateCommandPreview();
+        }
+
+        private void commandPreviewLabel_Click(object sender, EventArgs e)
+        {
+            string textToCopy = commandPreviewLabel.Text.Replace("Command: ","");
+
+            if (!string.IsNullOrEmpty(textToCopy))
+            {
+                Clipboard.SetText(textToCopy);
+                MessageBox.Show("Command copied to clipboard!", "Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        private void threadsComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string prefix = "Command: robocopy ";
+            string currentCommand = commandPreviewLabel.Text;
+
+            if (!currentCommand.StartsWith(prefix))
+                return; // unexpected format
+
+            // Extract the command part after prefix
+            string command = currentCommand.Substring(prefix.Length);
+
+            // Use regex to replace /MT:<number> with new value
+            string pattern = @"/MT:\d+";
+            string newMtValue = threadsComboBox.SelectedItem?.ToString() ?? "8";
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(command, pattern))
+            {
+                command = System.Text.RegularExpressions.Regex.Replace(command, pattern, $"/MT:{newMtValue}");
+            }
+            commandPreviewLabel.Text = prefix + command;
+            UpdateCommandPreview();
+        }
+
+        private void retriesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string prefix = "Command: robocopy ";
+            string currentCommand = commandPreviewLabel.Text;
+
+            if (!currentCommand.StartsWith(prefix))
+                return; // unexpected format
+
+            // Extract the command part after prefix
+            string command = currentCommand.Substring(prefix.Length);
+
+            // Use regex to replace /MT:<number> with new value
+            string pattern = @"/R:\d+";
+            string newRvalue = threadsComboBox.SelectedItem?.ToString() ?? "3";
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(command, pattern))
+            {
+                command = System.Text.RegularExpressions.Regex.Replace(command, pattern, $"/R:{newRvalue}");
+            }
+            commandPreviewLabel.Text = prefix + command;
+            UpdateCommandPreview();
+        }
+
+        private void waitTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string prefix = "Command: robocopy ";
+            string currentCommand = commandPreviewLabel.Text;
+
+            if (!currentCommand.StartsWith(prefix))
+                return; // unexpected format
+
+            // Extract the command part after prefix
+            string command = currentCommand.Substring(prefix.Length);
+
+            // Use regex to replace /MT:<number> with new value
+            string pattern = @"/W:\d+";
+            string newRvalue = threadsComboBox.SelectedItem?.ToString() ?? "30";
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(command, pattern))
+            {
+                command = System.Text.RegularExpressions.Regex.Replace(command, pattern, $"/W:{newRvalue}");
+            }
+            commandPreviewLabel.Text = prefix + command;
             UpdateCommandPreview();
         }
     }
