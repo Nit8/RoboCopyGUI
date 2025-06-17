@@ -383,12 +383,51 @@ namespace RoboCopyGUI
                 proc.WaitForExit();
             }
         }
-    }
 
+        private void mirrorModeCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            string prefix = "Command: robocopy ";
+            string command = commandPreviewLabel.Text.Substring(prefix.Length);
 
-public enum StatusType
-    {
-        Success,
-        Error
+            if (mirrorModeCheckBox.Checked)
+            {
+                if (!command.Contains("/MIR"))
+                    command = command + "/MIR ";
+            }
+            else
+            {
+                command = command.Replace("/MIR ", "");
+                command = command.Replace("/MIR", "");
+            }
+
+            commandPreviewLabel.Text = prefix + command.Trim();
+            UpdateCommandPreview();
+        }
+
+        public enum StatusType
+        {
+            Success,
+            Error
+        }
+
+        private void moveFilesCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            string prefix = "Command: robocopy ";
+            string command = commandPreviewLabel.Text.Substring(prefix.Length);
+
+            if (moveFilesCheckBox.Checked)
+            {
+                if (!command.Contains("/MOVE"))
+                    command = command + "/MOVE ";
+            }
+            else
+            {
+                command = command.Replace("/MOVE ", "");
+                command = command.Replace("/MOVE", "");
+            }
+
+            commandPreviewLabel.Text = prefix + command.Trim();
+            UpdateCommandPreview();
+        }
     }
 }

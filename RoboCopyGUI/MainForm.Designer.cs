@@ -310,6 +310,7 @@ namespace RoboCopyGUI
             this.mirrorModeCheckBox.TabIndex = 11;
             this.mirrorModeCheckBox.Text = "Mirror Mode (⚠️ Deletes extra files)";
             this.mirrorModeCheckBox.UseVisualStyleBackColor = true;
+            this.mirrorModeCheckBox.CheckedChanged += new System.EventHandler(this.mirrorModeCheckBox_CheckedChanged);
             // 
             // moveFilesCheckBox
             // 
@@ -320,6 +321,7 @@ namespace RoboCopyGUI
             this.moveFilesCheckBox.TabIndex = 12;
             this.moveFilesCheckBox.Text = "Move Files (⚠️ Deletes source)";
             this.moveFilesCheckBox.UseVisualStyleBackColor = true;
+            this.moveFilesCheckBox.CheckedChanged += new System.EventHandler(this.moveFilesCheckBox_CheckedChanged);
             // 
             // enableLoggingCheckBox
             // 
@@ -471,7 +473,7 @@ namespace RoboCopyGUI
             this.commandPreviewLabel.Location = new System.Drawing.Point(26, 532);
             this.commandPreviewLabel.Name = "commandPreviewLabel";
             this.commandPreviewLabel.Padding = new System.Windows.Forms.Padding(9);
-            this.commandPreviewLabel.Size = new System.Drawing.Size(676, 72);
+            this.commandPreviewLabel.Size = new System.Drawing.Size(676, 119);
             this.commandPreviewLabel.TabIndex = 20;
             this.commandPreviewLabel.Text = "Command: robocopy \"source\" \"destination\" /E /MT:8 /R:3 /W:30";
             // 
@@ -484,7 +486,7 @@ namespace RoboCopyGUI
             this.startCopyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startCopyButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startCopyButton.ForeColor = System.Drawing.Color.White;
-            this.startCopyButton.Location = new System.Drawing.Point(26, 607);
+            this.startCopyButton.Location = new System.Drawing.Point(26, 654);
             this.startCopyButton.Name = "startCopyButton";
             this.startCopyButton.Size = new System.Drawing.Size(676, 43);
             this.startCopyButton.TabIndex = 21;
@@ -499,7 +501,7 @@ namespace RoboCopyGUI
             this.progressContainer.Controls.Add(this.progressHeaderLabel);
             this.progressContainer.Controls.Add(this.progressBar);
             this.progressContainer.Controls.Add(this.progressLabel);
-            this.progressContainer.Location = new System.Drawing.Point(26, 659);
+            this.progressContainer.Location = new System.Drawing.Point(26, 706);
             this.progressContainer.Name = "progressContainer";
             this.progressContainer.Size = new System.Drawing.Size(676, 69);
             this.progressContainer.TabIndex = 22;
@@ -551,7 +553,7 @@ namespace RoboCopyGUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logContainer.Controls.Add(this.logHeaderLabel);
             this.logContainer.Controls.Add(this.logOutputTextBox);
-            this.logContainer.Location = new System.Drawing.Point(26, 737);
+            this.logContainer.Location = new System.Drawing.Point(26, 784);
             this.logContainer.Name = "logContainer";
             this.logContainer.Size = new System.Drawing.Size(676, 173);
             this.logContainer.TabIndex = 23;
