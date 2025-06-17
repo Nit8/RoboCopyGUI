@@ -13,6 +13,7 @@ namespace RoboCopyGUI
         private int totalFiles = 0;
         private int copiedFiles = 0;
         private Random random = new Random(); // Reuse Random instance
+        private bool isInitializing = true;
 
         public MainForm()
         {
@@ -20,6 +21,7 @@ namespace RoboCopyGUI
             this.AutoScroll = true;
             this.AutoScrollMinSize = new Size(800, 1000);
             InitializeForm();
+            isInitializing = false; // Now events should be processed
             copyTimer.Tick += copyTimer_Tick;
             statusTimer.Tick += statusTimer_Tick;
             Panel mainPanel = new Panel();
@@ -531,5 +533,60 @@ namespace RoboCopyGUI
             commandPreviewLabel.Text = prefix + command;
             UpdateCommandPreview();
         }
+
+        private void copyTypeComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (isInitializing)
+                return;
+            string selectedType = copyTypeComboBox.SelectedItem?.ToString();
+            if (string.IsNullOrWhiteSpace(selectedType))
+                return;
+
+            if (selectedType == "Single File")
+            {
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.Title = "Select a single file";
+                    openFileDialog.Filter = "All Files (*.*)|*.*";
+                    openFileDialog.Multiselect = false;
+
+                    DialogResult result = openFileDialog.ShowDialog();
+
+                    if (result == DialogResult.OK)
+                    {
+                        // User selected a file, set source path to that file
+                        sourcePathTextBox.Text = openFileDialog.FileName;
+                    }
+                    else
+                    {
+                        // User cancelled the dialog, clear the source path
+                        sourcePathTextBox.Text = string.Empty;
+
+                        // Optionally reset the copy type selection to previous or default
+                        // For example:
+                        // copyTypeComboBox.SelectedIndex = 0; // or some default index
+                    }
+                }
+            }
+            else
+            {
+                // For other copy types, you may want to clear the file name from source path
+                string sourcePath = sourcePathTextBox.Text;
+                if (!string.IsNullOrWhiteSpace(sourcePath))
+                {
+                    if (!Directory.Exists(sourcePath))
+                    {
+                        string dir = Path.GetDirectoryName(sourcePath);
+                        if (!string.IsNullOrEmpty(dir))
+                            sourcePathTextBox.Text = dir;
+                    }
+                }
+            }
+
+            // Update the command preview to reflect changes
+            UpdateCommandPreview();
+        }
+
+
     }
 }

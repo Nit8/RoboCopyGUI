@@ -192,6 +192,7 @@ namespace RoboCopyGUI
             this.copyTypeComboBox.Name = "copyTypeComboBox";
             this.copyTypeComboBox.Size = new System.Drawing.Size(599, 21);
             this.copyTypeComboBox.TabIndex = 2;
+            this.copyTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.copyTypeComboBox_SelectedIndexChanged_1);
             // 
             // sourcePathLabel
             // 
