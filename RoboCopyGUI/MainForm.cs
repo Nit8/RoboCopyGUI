@@ -180,14 +180,6 @@ namespace RoboCopyGUI
             UpdateCommandPreview();
         }
 
-        private void toggleAdvancedButton_Click(object sender, EventArgs e)
-        {
-            advancedOptions.Visible = !advancedOptions.Visible;
-            toggleAdvancedButton.Text = advancedOptions.Visible ?
-                "⚙️ Hide Advanced Options" : "⚙️ Show Advanced Options";
-            UpdateCommandPreview();
-        }
-
         private void copyTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             filePatternGroup.Visible = copyTypeComboBox.SelectedItem.ToString() == "Entire Folder";
@@ -504,6 +496,37 @@ namespace RoboCopyGUI
             if (System.Text.RegularExpressions.Regex.IsMatch(command, pattern))
             {
                 command = System.Text.RegularExpressions.Regex.Replace(command, pattern, $"/W:{newRvalue}");
+            }
+            commandPreviewLabel.Text = prefix + command;
+            UpdateCommandPreview();
+        }
+
+        private void toggleAdvancedButton_Click(object sender, EventArgs e)
+        {
+            advancedOptions.Visible = !advancedOptions.Visible;
+            toggleAdvancedButton.Text = advancedOptions.Visible ?
+                "⚙️ Hide Advanced Options" : "⚙️ Show Advanced Options";
+            UpdateCommandPreview();
+        }
+
+        private void copyFlagsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string prefix = "Command: robocopy ";
+            string currentCommand = commandPreviewLabel.Text;
+
+            if (!currentCommand.StartsWith(prefix))
+                return; // unexpected format
+
+            // Extract the command part after prefix
+            string command = currentCommand.Substring(prefix.Length);
+
+            // Use regex to replace /MT:<number> with new value
+            string pattern = @"/COPY:\s+";
+            string newRvalue = threadsComboBox.SelectedItem?.ToString() ?? "30";
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(command, pattern))
+            {
+                command = System.Text.RegularExpressions.Regex.Replace(command, pattern, $"/COPY:{newRvalue}");
             }
             commandPreviewLabel.Text = prefix + command;
             UpdateCommandPreview();

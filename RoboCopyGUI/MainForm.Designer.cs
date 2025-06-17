@@ -395,13 +395,14 @@ namespace RoboCopyGUI
             this.toggleAdvancedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.toggleAdvancedButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toggleAdvancedButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(126)))), ((int)(((byte)(234)))));
-            this.toggleAdvancedButton.Location = new System.Drawing.Point(26, 423);
+            this.toggleAdvancedButton.Location = new System.Drawing.Point(26, 415);
             this.toggleAdvancedButton.Name = "toggleAdvancedButton";
-            this.toggleAdvancedButton.Size = new System.Drawing.Size(154, 22);
+            this.toggleAdvancedButton.Size = new System.Drawing.Size(172, 39);
             this.toggleAdvancedButton.TabIndex = 18;
             this.toggleAdvancedButton.Text = "⚙️ Show Advanced Options";
             this.toggleAdvancedButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toggleAdvancedButton.UseVisualStyleBackColor = false;
+            this.toggleAdvancedButton.Click += new System.EventHandler(this.toggleAdvancedButton_Click);
             // 
             // advancedOptions
             // 
@@ -465,6 +466,7 @@ namespace RoboCopyGUI
             this.copyFlagsComboBox.Name = "copyFlagsComboBox";
             this.copyFlagsComboBox.Size = new System.Drawing.Size(258, 21);
             this.copyFlagsComboBox.TabIndex = 3;
+            this.copyFlagsComboBox.SelectedIndexChanged += new System.EventHandler(this.copyFlagsComboBox_SelectedIndexChanged);
             // 
             // commandPreviewLabel
             // 
