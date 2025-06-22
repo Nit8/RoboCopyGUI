@@ -17,12 +17,23 @@ namespace RoboCopyGUI
         private bool isInitializing = true;
         private LoggerService loggerService = new LoggerService();
 
+        private System.Windows.Forms.Timer advancedOptionsTimer;
+        private int advancedOptionsTargetHeight = 0;
+        private int advancedOptionsCollapsedHeight = 0;
+        private int advancedOptionsExpandedHeight = 0;
+        private bool advancedOptionsExpanding = false;
+
+        // For smoothness, use a smaller step and interval:
+        private const int AdvancedOptionsAnimationStepMin = 2; // Minimum pixels per tick
+        private const int AdvancedOptionsAnimationStepMax = 12; // Maximum pixels per tick
+        private const int AdvancedOptionsAnimationInterval = 8; // ms, lower is smoother
+
         public MainForm()
         {
             loggerService.LogInfo("Application started");
             InitializeComponent();
-            this.AutoScroll = true;
-            this.AutoScrollMinSize = new Size(800, 1000);
+            AutoScroll = true;
+            AutoScrollMinSize = new Size(800, 1000);
             InitializeForm();
             isInitializing = false; // Now events should be processed
             copyTimer.Tick += copyTimer_Tick;
@@ -30,16 +41,26 @@ namespace RoboCopyGUI
             Panel mainPanel = new Panel();
             mainPanel.Dock = DockStyle.Fill;
             mainPanel.AutoScroll = true;
-            this.Controls.Add(mainPanel);
+            Controls.Add(mainPanel);
+
+            // --- Advanced Options Animation Setup ---
+            advancedOptionsCollapsedHeight = 0;
+            advancedOptionsExpandedHeight = advancedOptions.Height; // Store the full height
+            advancedOptions.Height = advancedOptionsCollapsedHeight;
+            advancedOptions.Visible = false;
+
+            advancedOptionsTimer = new System.Windows.Forms.Timer();
+            advancedOptionsTimer.Interval = AdvancedOptionsAnimationInterval;
+            advancedOptionsTimer.Tick += AdvancedOptionsTimer_Tick;
         }
 
         private void InitializeForm()
         {
             // Initialize form settings
-            this.Text = "Robocopy File Copier";
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.BackColor = Color.FromArgb(118, 75, 162);
-            this.Padding = new Padding(20);
+            Text = "Robocopy File Copier";
+            StartPosition = FormStartPosition.CenterScreen;
+            BackColor = Color.FromArgb(118, 75, 162);
+            Padding = new Padding(20);
 
             // Initialize controls
             filePatternGroup.Visible = false;
@@ -369,7 +390,7 @@ namespace RoboCopyGUI
                 {
                     if (!string.IsNullOrEmpty(e.Data))
                     {
-                        this.Invoke(new Action(() =>
+                        Invoke(new Action(() =>
                         {
                             logOutputTextBox.AppendText(e.Data + Environment.NewLine);
                             logOutputTextBox.ScrollToCaret();
@@ -381,7 +402,7 @@ namespace RoboCopyGUI
                 {
                     if (!string.IsNullOrEmpty(e.Data))
                     {
-                        this.Invoke(new Action(() =>
+                        Invoke(new Action(() =>
                         {
                             logOutputTextBox.AppendText("ERROR: " + e.Data + Environment.NewLine);
                             logOutputTextBox.ScrollToCaret();
@@ -523,9 +544,22 @@ namespace RoboCopyGUI
 
         private void toggleAdvancedButton_Click(object sender, EventArgs e)
         {
-            advancedOptions.Visible = !advancedOptions.Visible;
-            toggleAdvancedButton.Text = advancedOptions.Visible ?
-                "⚙️ Hide Advanced Options" : "⚙️ Show Advanced Options";
+            if (advancedOptionsTimer.Enabled) return; // Prevent double-click issues
+
+            if (!advancedOptions.Visible || advancedOptions.Height == advancedOptionsCollapsedHeight)
+            {
+                advancedOptions.Visible = true;
+                advancedOptionsTargetHeight = advancedOptionsExpandedHeight;
+                advancedOptionsExpanding = true;
+                toggleAdvancedButton.Text = "⚙️ Hide Advanced Options";
+            }
+            else
+            {
+                advancedOptionsTargetHeight = advancedOptionsCollapsedHeight;
+                advancedOptionsExpanding = false;
+                toggleAdvancedButton.Text = "⚙️ Show Advanced Options";
+            }
+            advancedOptionsTimer.Start();
             UpdateCommandPreview();
         }
 
@@ -623,6 +657,37 @@ namespace RoboCopyGUI
 
             commandPreviewLabel.Text = prefix + command.Trim();
             UpdateCommandPreview();
+        }
+
+        private void AdvancedOptionsTimer_Tick(object sender, EventArgs e)
+        {
+            int current = advancedOptions.Height;
+            int target = advancedOptionsTargetHeight;
+            int distance = Math.Abs(target - current);
+
+            // Use a dynamic step for easing (slows down as it approaches target)
+            int step = Math.Max(AdvancedOptionsAnimationStepMin, distance / 5);
+            step = Math.Min(step, AdvancedOptionsAnimationStepMax);
+
+            if (advancedOptionsExpanding)
+            {
+                advancedOptions.Height = Math.Min(current + step, target);
+                if (advancedOptions.Height >= target)
+                {
+                    advancedOptions.Height = target;
+                    advancedOptionsTimer.Stop();
+                }
+            }
+            else
+            {
+                advancedOptions.Height = Math.Max(current - step, target);
+                if (advancedOptions.Height <= target)
+                {
+                    advancedOptions.Height = target;
+                    advancedOptions.Visible = false;
+                    advancedOptionsTimer.Stop();
+                }
+            }
         }
     }
 }

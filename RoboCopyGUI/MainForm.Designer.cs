@@ -130,6 +130,7 @@ namespace RoboCopyGUI
             mainContainer.Controls.Add(copyTypeLabel);
             mainContainer.Controls.Add(copyTypeComboBox);
             mainContainer.Controls.Add(sourcePathLabel);
+            mainContainer.Controls.Add(commandPreviewLabel);
             mainContainer.Controls.Add(sourcePathTextBox);
             mainContainer.Controls.Add(browseSourceButton);
             mainContainer.Controls.Add(destPathLabel);
@@ -146,7 +147,6 @@ namespace RoboCopyGUI
             mainContainer.Controls.Add(retriesComboBox);
             mainContainer.Controls.Add(toggleAdvancedButton);
             mainContainer.Controls.Add(advancedOptions);
-            mainContainer.Controls.Add(commandPreviewLabel);
             mainContainer.Controls.Add(startCopyButton);
             mainContainer.Controls.Add(progressContainer);
             mainContainer.Controls.Add(logContainer);
@@ -154,7 +154,7 @@ namespace RoboCopyGUI
             mainContainer.Location = new Point(23, 23);
             mainContainer.Margin = new Padding(4, 3, 4, 3);
             mainContainer.Name = "mainContainer";
-            mainContainer.Padding = new Padding(30, 30, 30, 30);
+            mainContainer.Padding = new Padding(30);
             mainContainer.Size = new Size(868, 1030);
             mainContainer.TabIndex = 0;
             // 
@@ -477,10 +477,10 @@ namespace RoboCopyGUI
             commandPreviewLabel.BackColor = Color.FromArgb(248, 249, 250);
             commandPreviewLabel.BorderStyle = BorderStyle.FixedSingle;
             commandPreviewLabel.Font = new Font("Courier New", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            commandPreviewLabel.Location = new Point(30, 614);
+            commandPreviewLabel.Location = new Point(30, 615);
             commandPreviewLabel.Margin = new Padding(4, 0, 4, 0);
             commandPreviewLabel.Name = "commandPreviewLabel";
-            commandPreviewLabel.Padding = new Padding(10, 10, 10, 10);
+            commandPreviewLabel.Padding = new Padding(10);
             commandPreviewLabel.Size = new Size(788, 137);
             commandPreviewLabel.TabIndex = 20;
             commandPreviewLabel.Text = "Command: robocopy \"source\" \"destination\" /E /MT:8 /R:3 /W:30";
@@ -632,7 +632,7 @@ namespace RoboCopyGUI
             Controls.Add(mainContainer);
             Margin = new Padding(4, 3, 4, 3);
             Name = "MainForm";
-            Padding = new Padding(20, 20, 20, 20);
+            Padding = new Padding(20);
             StartPosition = FormStartPosition.WindowsDefaultBounds;
             Text = "Robocopy File Copier";
             mainContainer.ResumeLayout(false);
