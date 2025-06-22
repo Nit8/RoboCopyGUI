@@ -108,44 +108,59 @@ namespace RoboCopyGUI
 
         private void UpdateCommandPreview()
         {
-            // Check for null selection
             if (copyTypeComboBox.SelectedItem == null) return;
 
             string command = "robocopy ";
+            string source = string.IsNullOrWhiteSpace(sourcePathTextBox.Text) ? "source" : sourcePathTextBox.Text;
+            string dest = string.IsNullOrWhiteSpace(destPathTextBox.Text) ? "destination" : destPathTextBox.Text;
 
+            // Clean ComboBox item text helper
+            string CleanComboBoxText(object item)
+            {
+                if (item == null) return "";
+                string text = item.ToString();
+                string[] remove = { "(Default)", "(Recommended)", "(Data, Attributes, Timestamps)", "(Everything)", "(Data only)" };
+                foreach (var r in remove)
+                    text = text.Replace(r, "");
+                return text.Trim();
+            }
+
+            // Build base command
             if (copyTypeComboBox.SelectedItem.ToString() == "Single File")
             {
-                if (string.IsNullOrWhiteSpace(sourcePathTextBox.Text))
-                {
-                    command += "\"source\" \"destination\"";
-                }
-                else
-                {
-                    string sourceDir = Path.GetDirectoryName(sourcePathTextBox.Text);
-                    string fileName = Path.GetFileName(sourcePathTextBox.Text);
-                    command += $"\"{sourceDir}\" \"{destPathTextBox.Text}\" \"{fileName}\"";
-                }
+                string sourceDir = Path.GetDirectoryName(source);
+                string fileName = Path.GetFileName(source);
+                command += $"\"{sourceDir}\" \"{dest}\" \"{fileName}\"";
             }
             else
             {
-                command += $"\"{sourcePathTextBox.Text}\" \"{destPathTextBox.Text}\"";
+                command += $"\"{source}\" \"{dest}\"";
                 if (!string.IsNullOrEmpty(filePatternTextBox.Text))
-                {
                     command += $" \"{filePatternTextBox.Text}\"";
-                }
             }
 
-            // Add options
-            if (includeSubdirsCheckBox.Checked && copyTypeComboBox.SelectedItem.ToString() == "Entire Folder")
-                command += " /E";
-            if (mirrorModeCheckBox.Checked) command += " /MIR";
-            if (moveFilesCheckBox.Checked) command += " /MOVE";
-            command += $" /MT:{threadsComboBox.SelectedItem}";
-            command += $" /R:{retriesComboBox.SelectedItem}";
-            command += $" /W:{waitTimeComboBox.SelectedItem}";
-            command += $" /COPY:{copyFlagsComboBox.SelectedItem}";
+            // Build options
+            var options = new List<string>();
 
-            commandPreviewLabel.Text = $"Command: {command.Replace("(Default)","").Replace("(Recommended)", "").Replace("(Data, Attributes, Timestamps)","").Replace("(Everything)", "").Replace("(Data only)","")}";
+            if (includeSubdirsCheckBox.Checked && copyTypeComboBox.SelectedItem.ToString() == "Entire Folder")
+                options.Add("/E");
+            if (mirrorModeCheckBox.Checked)
+                options.Add("/MIR");
+            if (moveFilesCheckBox.Checked)
+                options.Add("/MOVE");
+
+            // Only add /E once
+            if (includeSubdirsCheckBox.Checked && !options.Contains("/E"))
+                options.Add("/E");
+
+            options.Add($"/MT:{CleanComboBoxText(threadsComboBox.SelectedItem)}");
+            options.Add($"/R:{CleanComboBoxText(retriesComboBox.SelectedItem)}");
+            options.Add($"/W:{CleanComboBoxText(waitTimeComboBox.SelectedItem)}");
+            options.Add($"/COPY:{CleanComboBoxText(copyFlagsComboBox.SelectedItem)}");
+
+            command += " " + string.Join(" ", options);
+
+            commandPreviewLabel.Text = $"Command: {command}";
         }
 
         private void browseSourceButton_Click(object sender, EventArgs e)
@@ -429,7 +444,7 @@ namespace RoboCopyGUI
 
         private void commandPreviewLabel_Click(object sender, EventArgs e)
         {
-            string textToCopy = commandPreviewLabel.Text.Replace("Command: ","");
+            string textToCopy = commandPreviewLabel.Text.Replace("Command: ", "");
 
             if (!string.IsNullOrEmpty(textToCopy))
             {
@@ -590,6 +605,24 @@ namespace RoboCopyGUI
             UpdateCommandPreview();
         }
 
+        private void includeSubdirsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            string prefix = "Command: robocopy ";
+            string command = commandPreviewLabel.Text.Substring(prefix.Length);
 
+            if (includeSubdirsCheckBox.Checked)
+            {
+                if (!command.Contains("/E"))
+                    command = command + "/E ";
+            }
+            else
+            {
+                command = command.Replace("/E ", "");
+                command = command.Replace("/E", "");
+            }
+
+            commandPreviewLabel.Text = prefix + command.Trim();
+            UpdateCommandPreview();
+        }
     }
 }

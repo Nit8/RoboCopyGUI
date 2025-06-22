@@ -61,586 +61,593 @@ namespace RoboCopyGUI
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.copyTimer = new System.Windows.Forms.Timer(this.components);
-            this.statusTimer = new System.Windows.Forms.Timer(this.components);
-            this.mainContainer = new RoboCopyGUI.RoundedPanel();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.copyTypeLabel = new System.Windows.Forms.Label();
-            this.copyTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.sourcePathLabel = new System.Windows.Forms.Label();
-            this.sourcePathTextBox = new System.Windows.Forms.TextBox();
-            this.browseSourceButton = new System.Windows.Forms.Button();
-            this.destPathLabel = new System.Windows.Forms.Label();
-            this.destPathTextBox = new System.Windows.Forms.TextBox();
-            this.browseDestButton = new System.Windows.Forms.Button();
-            this.filePatternGroup = new System.Windows.Forms.Panel();
-            this.filePatternLabel = new System.Windows.Forms.Label();
-            this.filePatternTextBox = new System.Windows.Forms.TextBox();
-            this.includeSubdirsCheckBox = new System.Windows.Forms.CheckBox();
-            this.mirrorModeCheckBox = new System.Windows.Forms.CheckBox();
-            this.moveFilesCheckBox = new System.Windows.Forms.CheckBox();
-            this.enableLoggingCheckBox = new System.Windows.Forms.CheckBox();
-            this.threadsLabel = new System.Windows.Forms.Label();
-            this.threadsComboBox = new System.Windows.Forms.ComboBox();
-            this.retriesLabel = new System.Windows.Forms.Label();
-            this.retriesComboBox = new System.Windows.Forms.ComboBox();
-            this.toggleAdvancedButton = new System.Windows.Forms.Button();
-            this.advancedOptions = new System.Windows.Forms.Panel();
-            this.waitTimeLabel = new System.Windows.Forms.Label();
-            this.waitTimeComboBox = new System.Windows.Forms.ComboBox();
-            this.copyFlagsLabel = new System.Windows.Forms.Label();
-            this.copyFlagsComboBox = new System.Windows.Forms.ComboBox();
-            this.commandPreviewLabel = new System.Windows.Forms.Label();
-            this.startCopyButton = new System.Windows.Forms.Button();
-            this.progressContainer = new System.Windows.Forms.Panel();
-            this.progressHeaderLabel = new System.Windows.Forms.Label();
-            this.progressBar = new System.Windows.Forms.Panel();
-            this.progressFill = new System.Windows.Forms.Panel();
-            this.progressLabel = new System.Windows.Forms.Label();
-            this.logContainer = new System.Windows.Forms.Panel();
-            this.logHeaderLabel = new System.Windows.Forms.Label();
-            this.logOutputTextBox = new System.Windows.Forms.TextBox();
-            this.statusPanel = new RoboCopyGUI.RoundedPanel();
-            this.statusLabel = new System.Windows.Forms.Label();
-            this.mainContainer.SuspendLayout();
-            this.filePatternGroup.SuspendLayout();
-            this.advancedOptions.SuspendLayout();
-            this.progressContainer.SuspendLayout();
-            this.progressBar.SuspendLayout();
-            this.logContainer.SuspendLayout();
-            this.statusPanel.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            copyTimer = new System.Windows.Forms.Timer(components);
+            statusTimer = new System.Windows.Forms.Timer(components);
+            mainContainer = new RoundedPanel();
+            titleLabel = new Label();
+            copyTypeLabel = new Label();
+            copyTypeComboBox = new ComboBox();
+            sourcePathLabel = new Label();
+            sourcePathTextBox = new TextBox();
+            browseSourceButton = new Button();
+            destPathLabel = new Label();
+            destPathTextBox = new TextBox();
+            browseDestButton = new Button();
+            filePatternGroup = new Panel();
+            filePatternLabel = new Label();
+            filePatternTextBox = new TextBox();
+            includeSubdirsCheckBox = new CheckBox();
+            mirrorModeCheckBox = new CheckBox();
+            moveFilesCheckBox = new CheckBox();
+            enableLoggingCheckBox = new CheckBox();
+            threadsLabel = new Label();
+            threadsComboBox = new ComboBox();
+            retriesLabel = new Label();
+            retriesComboBox = new ComboBox();
+            toggleAdvancedButton = new Button();
+            advancedOptions = new Panel();
+            waitTimeLabel = new Label();
+            waitTimeComboBox = new ComboBox();
+            copyFlagsLabel = new Label();
+            copyFlagsComboBox = new ComboBox();
+            commandPreviewLabel = new Label();
+            startCopyButton = new Button();
+            progressContainer = new Panel();
+            progressHeaderLabel = new Label();
+            progressBar = new Panel();
+            progressFill = new Panel();
+            progressLabel = new Label();
+            logContainer = new Panel();
+            logHeaderLabel = new Label();
+            logOutputTextBox = new TextBox();
+            statusPanel = new RoundedPanel();
+            statusLabel = new Label();
+            mainContainer.SuspendLayout();
+            filePatternGroup.SuspendLayout();
+            advancedOptions.SuspendLayout();
+            progressContainer.SuspendLayout();
+            progressBar.SuspendLayout();
+            logContainer.SuspendLayout();
+            statusPanel.SuspendLayout();
+            SuspendLayout();
             // 
             // copyTimer
             // 
-            this.copyTimer.Interval = 200;
+            copyTimer.Interval = 200;
             // 
             // statusTimer
             // 
-            this.statusTimer.Interval = 5000;
+            statusTimer.Interval = 5000;
             // 
             // mainContainer
             // 
-            this.mainContainer.BackColor = System.Drawing.Color.White;
-            this.mainContainer.BorderColor = System.Drawing.Color.White;
-            this.mainContainer.BorderRadius = 20;
-            this.mainContainer.BorderSize = 0;
-            this.mainContainer.Controls.Add(this.titleLabel);
-            this.mainContainer.Controls.Add(this.copyTypeLabel);
-            this.mainContainer.Controls.Add(this.copyTypeComboBox);
-            this.mainContainer.Controls.Add(this.sourcePathLabel);
-            this.mainContainer.Controls.Add(this.sourcePathTextBox);
-            this.mainContainer.Controls.Add(this.browseSourceButton);
-            this.mainContainer.Controls.Add(this.destPathLabel);
-            this.mainContainer.Controls.Add(this.destPathTextBox);
-            this.mainContainer.Controls.Add(this.browseDestButton);
-            this.mainContainer.Controls.Add(this.filePatternGroup);
-            this.mainContainer.Controls.Add(this.includeSubdirsCheckBox);
-            this.mainContainer.Controls.Add(this.mirrorModeCheckBox);
-            this.mainContainer.Controls.Add(this.moveFilesCheckBox);
-            this.mainContainer.Controls.Add(this.enableLoggingCheckBox);
-            this.mainContainer.Controls.Add(this.threadsLabel);
-            this.mainContainer.Controls.Add(this.threadsComboBox);
-            this.mainContainer.Controls.Add(this.retriesLabel);
-            this.mainContainer.Controls.Add(this.retriesComboBox);
-            this.mainContainer.Controls.Add(this.toggleAdvancedButton);
-            this.mainContainer.Controls.Add(this.advancedOptions);
-            this.mainContainer.Controls.Add(this.commandPreviewLabel);
-            this.mainContainer.Controls.Add(this.startCopyButton);
-            this.mainContainer.Controls.Add(this.progressContainer);
-            this.mainContainer.Controls.Add(this.logContainer);
-            this.mainContainer.Controls.Add(this.statusPanel);
-            this.mainContainer.Location = new System.Drawing.Point(20, 20);
-            this.mainContainer.Name = "mainContainer";
-            this.mainContainer.Padding = new System.Windows.Forms.Padding(26);
-            this.mainContainer.Size = new System.Drawing.Size(744, 893);
-            this.mainContainer.TabIndex = 0;
+            mainContainer.BackColor = Color.White;
+            mainContainer.BorderColor = Color.White;
+            mainContainer.BorderRadius = 20;
+            mainContainer.BorderSize = 0;
+            mainContainer.Controls.Add(titleLabel);
+            mainContainer.Controls.Add(copyTypeLabel);
+            mainContainer.Controls.Add(copyTypeComboBox);
+            mainContainer.Controls.Add(sourcePathLabel);
+            mainContainer.Controls.Add(sourcePathTextBox);
+            mainContainer.Controls.Add(browseSourceButton);
+            mainContainer.Controls.Add(destPathLabel);
+            mainContainer.Controls.Add(destPathTextBox);
+            mainContainer.Controls.Add(browseDestButton);
+            mainContainer.Controls.Add(filePatternGroup);
+            mainContainer.Controls.Add(includeSubdirsCheckBox);
+            mainContainer.Controls.Add(mirrorModeCheckBox);
+            mainContainer.Controls.Add(moveFilesCheckBox);
+            mainContainer.Controls.Add(enableLoggingCheckBox);
+            mainContainer.Controls.Add(threadsLabel);
+            mainContainer.Controls.Add(threadsComboBox);
+            mainContainer.Controls.Add(retriesLabel);
+            mainContainer.Controls.Add(retriesComboBox);
+            mainContainer.Controls.Add(toggleAdvancedButton);
+            mainContainer.Controls.Add(advancedOptions);
+            mainContainer.Controls.Add(commandPreviewLabel);
+            mainContainer.Controls.Add(startCopyButton);
+            mainContainer.Controls.Add(progressContainer);
+            mainContainer.Controls.Add(logContainer);
+            mainContainer.Controls.Add(statusPanel);
+            mainContainer.Location = new Point(23, 23);
+            mainContainer.Margin = new Padding(4, 3, 4, 3);
+            mainContainer.Name = "mainContainer";
+            mainContainer.Padding = new Padding(30, 30, 30, 30);
+            mainContainer.Size = new Size(868, 1030);
+            mainContainer.TabIndex = 0;
             // 
             // titleLabel
             // 
-            this.titleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(126)))), ((int)(((byte)(234)))));
-            this.titleLabel.Location = new System.Drawing.Point(53, 26);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(634, 52);
-            this.titleLabel.TabIndex = 0;
-            this.titleLabel.Text = "🚀 Robocopy File Copier";
-            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            titleLabel.Anchor = AnchorStyles.Top;
+            titleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            titleLabel.ForeColor = Color.FromArgb(102, 126, 234);
+            titleLabel.Location = new Point(62, 30);
+            titleLabel.Margin = new Padding(4, 0, 4, 0);
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new Size(740, 60);
+            titleLabel.TabIndex = 0;
+            titleLabel.Text = "🚀 Robocopy File Copier";
+            titleLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // copyTypeLabel
             // 
-            this.copyTypeLabel.AutoSize = true;
-            this.copyTypeLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.copyTypeLabel.Location = new System.Drawing.Point(26, 87);
-            this.copyTypeLabel.Name = "copyTypeLabel";
-            this.copyTypeLabel.Size = new System.Drawing.Size(66, 15);
-            this.copyTypeLabel.TabIndex = 1;
-            this.copyTypeLabel.Text = "Copy Type:";
+            copyTypeLabel.AutoSize = true;
+            copyTypeLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            copyTypeLabel.Location = new Point(30, 100);
+            copyTypeLabel.Margin = new Padding(4, 0, 4, 0);
+            copyTypeLabel.Name = "copyTypeLabel";
+            copyTypeLabel.Size = new Size(66, 15);
+            copyTypeLabel.TabIndex = 1;
+            copyTypeLabel.Text = "Copy Type:";
             // 
             // copyTypeComboBox
             // 
-            this.copyTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.copyTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.copyTypeComboBox.FormattingEnabled = true;
-            this.copyTypeComboBox.Items.AddRange(new object[] {
-            "Single File",
-            "Entire Folder"});
-            this.copyTypeComboBox.Location = new System.Drawing.Point(103, 84);
-            this.copyTypeComboBox.Name = "copyTypeComboBox";
-            this.copyTypeComboBox.Size = new System.Drawing.Size(599, 21);
-            this.copyTypeComboBox.TabIndex = 2;
-            this.copyTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.copyTypeComboBox_SelectedIndexChanged_1);
+            copyTypeComboBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            copyTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            copyTypeComboBox.FormattingEnabled = true;
+            copyTypeComboBox.Items.AddRange(new object[] { "Single File", "Entire Folder" });
+            copyTypeComboBox.Location = new Point(120, 97);
+            copyTypeComboBox.Margin = new Padding(4, 3, 4, 3);
+            copyTypeComboBox.Name = "copyTypeComboBox";
+            copyTypeComboBox.Size = new Size(698, 23);
+            copyTypeComboBox.TabIndex = 2;
+            copyTypeComboBox.SelectedIndexChanged += copyTypeComboBox_SelectedIndexChanged_1;
             // 
             // sourcePathLabel
             // 
-            this.sourcePathLabel.AutoSize = true;
-            this.sourcePathLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sourcePathLabel.Location = new System.Drawing.Point(26, 121);
-            this.sourcePathLabel.Name = "sourcePathLabel";
-            this.sourcePathLabel.Size = new System.Drawing.Size(77, 15);
-            this.sourcePathLabel.TabIndex = 3;
-            this.sourcePathLabel.Text = "Source Path:";
+            sourcePathLabel.AutoSize = true;
+            sourcePathLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            sourcePathLabel.Location = new Point(30, 140);
+            sourcePathLabel.Margin = new Padding(4, 0, 4, 0);
+            sourcePathLabel.Name = "sourcePathLabel";
+            sourcePathLabel.Size = new Size(77, 15);
+            sourcePathLabel.TabIndex = 3;
+            sourcePathLabel.Text = "Source Path:";
             // 
             // sourcePathTextBox
             // 
-            this.sourcePathTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.sourcePathTextBox.Location = new System.Drawing.Point(129, 121);
-            this.sourcePathTextBox.Name = "sourcePathTextBox";
-            this.sourcePathTextBox.Size = new System.Drawing.Size(530, 20);
-            this.sourcePathTextBox.TabIndex = 4;
+            sourcePathTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            sourcePathTextBox.Location = new Point(150, 140);
+            sourcePathTextBox.Margin = new Padding(4, 3, 4, 3);
+            sourcePathTextBox.Name = "sourcePathTextBox";
+            sourcePathTextBox.Size = new Size(618, 23);
+            sourcePathTextBox.TabIndex = 4;
             // 
             // browseSourceButton
             // 
-            this.browseSourceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.browseSourceButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(126)))), ((int)(((byte)(234)))));
-            this.browseSourceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.browseSourceButton.ForeColor = System.Drawing.Color.White;
-            this.browseSourceButton.Location = new System.Drawing.Point(670, 116);
-            this.browseSourceButton.Name = "browseSourceButton";
-            this.browseSourceButton.Size = new System.Drawing.Size(45, 29);
-            this.browseSourceButton.TabIndex = 5;
-            this.browseSourceButton.Text = "📁 Browse";
-            this.browseSourceButton.UseVisualStyleBackColor = false;
-            this.browseSourceButton.Click += new System.EventHandler(this.browseSourceButton_Click);
+            browseSourceButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            browseSourceButton.BackColor = Color.FromArgb(102, 126, 234);
+            browseSourceButton.FlatStyle = FlatStyle.Flat;
+            browseSourceButton.ForeColor = Color.White;
+            browseSourceButton.Location = new Point(782, 134);
+            browseSourceButton.Margin = new Padding(4, 3, 4, 3);
+            browseSourceButton.Name = "browseSourceButton";
+            browseSourceButton.Size = new Size(52, 33);
+            browseSourceButton.TabIndex = 5;
+            browseSourceButton.Text = "📁 Browse";
+            browseSourceButton.UseVisualStyleBackColor = false;
+            browseSourceButton.Click += browseSourceButton_Click;
             // 
             // destPathLabel
             // 
-            this.destPathLabel.AutoSize = true;
-            this.destPathLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.destPathLabel.Location = new System.Drawing.Point(26, 156);
-            this.destPathLabel.Name = "destPathLabel";
-            this.destPathLabel.Size = new System.Drawing.Size(102, 15);
-            this.destPathLabel.TabIndex = 6;
-            this.destPathLabel.Text = "Destination Path:";
+            destPathLabel.AutoSize = true;
+            destPathLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            destPathLabel.Location = new Point(30, 180);
+            destPathLabel.Margin = new Padding(4, 0, 4, 0);
+            destPathLabel.Name = "destPathLabel";
+            destPathLabel.Size = new Size(102, 15);
+            destPathLabel.TabIndex = 6;
+            destPathLabel.Text = "Destination Path:";
             // 
             // destPathTextBox
             // 
-            this.destPathTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.destPathTextBox.Location = new System.Drawing.Point(128, 154);
-            this.destPathTextBox.Name = "destPathTextBox";
-            this.destPathTextBox.Size = new System.Drawing.Size(531, 20);
-            this.destPathTextBox.TabIndex = 7;
+            destPathTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            destPathTextBox.Location = new Point(149, 178);
+            destPathTextBox.Margin = new Padding(4, 3, 4, 3);
+            destPathTextBox.Name = "destPathTextBox";
+            destPathTextBox.Size = new Size(619, 23);
+            destPathTextBox.TabIndex = 7;
             // 
             // browseDestButton
             // 
-            this.browseDestButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.browseDestButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(126)))), ((int)(((byte)(234)))));
-            this.browseDestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.browseDestButton.ForeColor = System.Drawing.Color.White;
-            this.browseDestButton.Location = new System.Drawing.Point(670, 150);
-            this.browseDestButton.Name = "browseDestButton";
-            this.browseDestButton.Size = new System.Drawing.Size(45, 27);
-            this.browseDestButton.TabIndex = 8;
-            this.browseDestButton.Text = "📁 Browse";
-            this.browseDestButton.UseVisualStyleBackColor = false;
-            this.browseDestButton.Click += new System.EventHandler(this.browseDestButton_Click);
+            browseDestButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            browseDestButton.BackColor = Color.FromArgb(102, 126, 234);
+            browseDestButton.FlatStyle = FlatStyle.Flat;
+            browseDestButton.ForeColor = Color.White;
+            browseDestButton.Location = new Point(782, 173);
+            browseDestButton.Margin = new Padding(4, 3, 4, 3);
+            browseDestButton.Name = "browseDestButton";
+            browseDestButton.Size = new Size(52, 31);
+            browseDestButton.TabIndex = 8;
+            browseDestButton.Text = "📁 Browse";
+            browseDestButton.UseVisualStyleBackColor = false;
+            browseDestButton.Click += browseDestButton_Click;
             // 
             // filePatternGroup
             // 
-            this.filePatternGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.filePatternGroup.Controls.Add(this.filePatternLabel);
-            this.filePatternGroup.Controls.Add(this.filePatternTextBox);
-            this.filePatternGroup.Location = new System.Drawing.Point(26, 191);
-            this.filePatternGroup.Name = "filePatternGroup";
-            this.filePatternGroup.Size = new System.Drawing.Size(676, 43);
-            this.filePatternGroup.TabIndex = 9;
+            filePatternGroup.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            filePatternGroup.Controls.Add(filePatternLabel);
+            filePatternGroup.Controls.Add(filePatternTextBox);
+            filePatternGroup.Location = new Point(30, 220);
+            filePatternGroup.Margin = new Padding(4, 3, 4, 3);
+            filePatternGroup.Name = "filePatternGroup";
+            filePatternGroup.Size = new Size(789, 50);
+            filePatternGroup.TabIndex = 9;
             // 
             // filePatternLabel
             // 
-            this.filePatternLabel.AutoSize = true;
-            this.filePatternLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.filePatternLabel.Location = new System.Drawing.Point(3, 9);
-            this.filePatternLabel.Name = "filePatternLabel";
-            this.filePatternLabel.Size = new System.Drawing.Size(130, 15);
-            this.filePatternLabel.TabIndex = 0;
-            this.filePatternLabel.Text = "File Pattern (optional):";
+            filePatternLabel.AutoSize = true;
+            filePatternLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            filePatternLabel.Location = new Point(4, 10);
+            filePatternLabel.Margin = new Padding(4, 0, 4, 0);
+            filePatternLabel.Name = "filePatternLabel";
+            filePatternLabel.Size = new Size(130, 15);
+            filePatternLabel.TabIndex = 0;
+            filePatternLabel.Text = "File Pattern (optional):";
             // 
             // filePatternTextBox
             // 
-            this.filePatternTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.filePatternTextBox.Location = new System.Drawing.Point(139, 6);
-            this.filePatternTextBox.Name = "filePatternTextBox";
-            this.filePatternTextBox.Size = new System.Drawing.Size(534, 20);
-            this.filePatternTextBox.TabIndex = 1;
+            filePatternTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            filePatternTextBox.Location = new Point(162, 7);
+            filePatternTextBox.Margin = new Padding(4, 3, 4, 3);
+            filePatternTextBox.Name = "filePatternTextBox";
+            filePatternTextBox.Size = new Size(622, 23);
+            filePatternTextBox.TabIndex = 1;
             // 
             // includeSubdirsCheckBox
             // 
-            this.includeSubdirsCheckBox.AutoSize = true;
-            this.includeSubdirsCheckBox.Checked = true;
-            this.includeSubdirsCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.includeSubdirsCheckBox.Location = new System.Drawing.Point(26, 243);
-            this.includeSubdirsCheckBox.Name = "includeSubdirsCheckBox";
-            this.includeSubdirsCheckBox.Size = new System.Drawing.Size(99, 17);
-            this.includeSubdirsCheckBox.TabIndex = 10;
-            this.includeSubdirsCheckBox.Text = "Include Subdirs";
-            this.includeSubdirsCheckBox.UseVisualStyleBackColor = true;
+            includeSubdirsCheckBox.AutoSize = true;
+            includeSubdirsCheckBox.Checked = true;
+            includeSubdirsCheckBox.CheckState = CheckState.Checked;
+            includeSubdirsCheckBox.Location = new Point(30, 280);
+            includeSubdirsCheckBox.Margin = new Padding(4, 3, 4, 3);
+            includeSubdirsCheckBox.Name = "includeSubdirsCheckBox";
+            includeSubdirsCheckBox.Size = new Size(107, 19);
+            includeSubdirsCheckBox.TabIndex = 10;
+            includeSubdirsCheckBox.Text = "Include Subdirs";
+            includeSubdirsCheckBox.UseVisualStyleBackColor = true;
+            includeSubdirsCheckBox.CheckedChanged += includeSubdirsCheckBox_CheckedChanged;
             // 
             // mirrorModeCheckBox
             // 
-            this.mirrorModeCheckBox.AutoSize = true;
-            this.mirrorModeCheckBox.Location = new System.Drawing.Point(26, 269);
-            this.mirrorModeCheckBox.Name = "mirrorModeCheckBox";
-            this.mirrorModeCheckBox.Size = new System.Drawing.Size(189, 17);
-            this.mirrorModeCheckBox.TabIndex = 11;
-            this.mirrorModeCheckBox.Text = "Mirror Mode (⚠️ Deletes extra files)";
-            this.mirrorModeCheckBox.UseVisualStyleBackColor = true;
-            this.mirrorModeCheckBox.CheckedChanged += new System.EventHandler(this.mirrorModeCheckBox_CheckedChanged);
+            mirrorModeCheckBox.AutoSize = true;
+            mirrorModeCheckBox.Location = new Point(30, 310);
+            mirrorModeCheckBox.Margin = new Padding(4, 3, 4, 3);
+            mirrorModeCheckBox.Name = "mirrorModeCheckBox";
+            mirrorModeCheckBox.Size = new Size(209, 19);
+            mirrorModeCheckBox.TabIndex = 11;
+            mirrorModeCheckBox.Text = "Mirror Mode (⚠️ Deletes extra files)";
+            mirrorModeCheckBox.UseVisualStyleBackColor = true;
+            mirrorModeCheckBox.CheckedChanged += mirrorModeCheckBox_CheckedChanged;
             // 
             // moveFilesCheckBox
             // 
-            this.moveFilesCheckBox.AutoSize = true;
-            this.moveFilesCheckBox.Location = new System.Drawing.Point(26, 295);
-            this.moveFilesCheckBox.Name = "moveFilesCheckBox";
-            this.moveFilesCheckBox.Size = new System.Drawing.Size(172, 17);
-            this.moveFilesCheckBox.TabIndex = 12;
-            this.moveFilesCheckBox.Text = "Move Files (⚠️ Deletes source)";
-            this.moveFilesCheckBox.UseVisualStyleBackColor = true;
-            this.moveFilesCheckBox.CheckedChanged += new System.EventHandler(this.moveFilesCheckBox_CheckedChanged);
+            moveFilesCheckBox.AutoSize = true;
+            moveFilesCheckBox.Location = new Point(30, 340);
+            moveFilesCheckBox.Margin = new Padding(4, 3, 4, 3);
+            moveFilesCheckBox.Name = "moveFilesCheckBox";
+            moveFilesCheckBox.Size = new Size(184, 19);
+            moveFilesCheckBox.TabIndex = 12;
+            moveFilesCheckBox.Text = "Move Files (⚠️ Deletes source)";
+            moveFilesCheckBox.UseVisualStyleBackColor = true;
+            moveFilesCheckBox.CheckedChanged += moveFilesCheckBox_CheckedChanged;
             // 
             // enableLoggingCheckBox
             // 
-            this.enableLoggingCheckBox.AutoSize = true;
-            this.enableLoggingCheckBox.Checked = true;
-            this.enableLoggingCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.enableLoggingCheckBox.Location = new System.Drawing.Point(26, 321);
-            this.enableLoggingCheckBox.Name = "enableLoggingCheckBox";
-            this.enableLoggingCheckBox.Size = new System.Drawing.Size(100, 17);
-            this.enableLoggingCheckBox.TabIndex = 13;
-            this.enableLoggingCheckBox.Text = "Enable Logging";
-            this.enableLoggingCheckBox.UseVisualStyleBackColor = true;
+            enableLoggingCheckBox.AutoSize = true;
+            enableLoggingCheckBox.Checked = true;
+            enableLoggingCheckBox.CheckState = CheckState.Checked;
+            enableLoggingCheckBox.Location = new Point(30, 370);
+            enableLoggingCheckBox.Margin = new Padding(4, 3, 4, 3);
+            enableLoggingCheckBox.Name = "enableLoggingCheckBox";
+            enableLoggingCheckBox.Size = new Size(108, 19);
+            enableLoggingCheckBox.TabIndex = 13;
+            enableLoggingCheckBox.Text = "Enable Logging";
+            enableLoggingCheckBox.UseVisualStyleBackColor = true;
             // 
             // threadsLabel
             // 
-            this.threadsLabel.AutoSize = true;
-            this.threadsLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.threadsLabel.Location = new System.Drawing.Point(26, 355);
-            this.threadsLabel.Name = "threadsLabel";
-            this.threadsLabel.Size = new System.Drawing.Size(118, 15);
-            this.threadsLabel.TabIndex = 14;
-            this.threadsLabel.Text = "Number of Threads:";
+            threadsLabel.AutoSize = true;
+            threadsLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            threadsLabel.Location = new Point(30, 410);
+            threadsLabel.Margin = new Padding(4, 0, 4, 0);
+            threadsLabel.Name = "threadsLabel";
+            threadsLabel.Size = new Size(118, 15);
+            threadsLabel.TabIndex = 14;
+            threadsLabel.Text = "Number of Threads:";
             // 
             // threadsComboBox
             // 
-            this.threadsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.threadsComboBox.FormattingEnabled = true;
-            this.threadsComboBox.Items.AddRange(new object[] {
-            "1 (Single-threaded)",
-            "2",
-            "4",
-            "8 (Default)",
-            "16",
-            "32 (Max)"});
-            this.threadsComboBox.Location = new System.Drawing.Point(150, 353);
-            this.threadsComboBox.Name = "threadsComboBox";
-            this.threadsComboBox.Size = new System.Drawing.Size(172, 21);
-            this.threadsComboBox.TabIndex = 15;
-            this.threadsComboBox.SelectedIndexChanged += new System.EventHandler(this.threadsComboBox_SelectedIndexChanged_1);
+            threadsComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            threadsComboBox.FormattingEnabled = true;
+            threadsComboBox.Items.AddRange(new object[] { "1 (Single-threaded)", "2", "4", "8 (Default)", "16", "32 (Max)" });
+            threadsComboBox.Location = new Point(175, 407);
+            threadsComboBox.Margin = new Padding(4, 3, 4, 3);
+            threadsComboBox.Name = "threadsComboBox";
+            threadsComboBox.Size = new Size(200, 23);
+            threadsComboBox.TabIndex = 15;
+            threadsComboBox.SelectedIndexChanged += threadsComboBox_SelectedIndexChanged_1;
             // 
             // retriesLabel
             // 
-            this.retriesLabel.AutoSize = true;
-            this.retriesLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.retriesLabel.Location = new System.Drawing.Point(26, 390);
-            this.retriesLabel.Name = "retriesLabel";
-            this.retriesLabel.Size = new System.Drawing.Size(114, 15);
-            this.retriesLabel.TabIndex = 16;
-            this.retriesLabel.Text = "Number of Retries:";
+            retriesLabel.AutoSize = true;
+            retriesLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            retriesLabel.Location = new Point(30, 450);
+            retriesLabel.Margin = new Padding(4, 0, 4, 0);
+            retriesLabel.Name = "retriesLabel";
+            retriesLabel.Size = new Size(114, 15);
+            retriesLabel.TabIndex = 16;
+            retriesLabel.Text = "Number of Retries:";
             // 
             // retriesComboBox
             // 
-            this.retriesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.retriesComboBox.FormattingEnabled = true;
-            this.retriesComboBox.Items.AddRange(new object[] {
-            "0 (No retries)",
-            "1",
-            "3 (Recommended)",
-            "5",
-            "10"});
-            this.retriesComboBox.Location = new System.Drawing.Point(146, 388);
-            this.retriesComboBox.Name = "retriesComboBox";
-            this.retriesComboBox.Size = new System.Drawing.Size(172, 21);
-            this.retriesComboBox.TabIndex = 17;
-            this.retriesComboBox.SelectedIndexChanged += new System.EventHandler(this.retriesComboBox_SelectedIndexChanged);
+            retriesComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            retriesComboBox.FormattingEnabled = true;
+            retriesComboBox.Items.AddRange(new object[] { "0 (No retries)", "1", "3 (Recommended)", "5", "10" });
+            retriesComboBox.Location = new Point(170, 448);
+            retriesComboBox.Margin = new Padding(4, 3, 4, 3);
+            retriesComboBox.Name = "retriesComboBox";
+            retriesComboBox.Size = new Size(200, 23);
+            retriesComboBox.TabIndex = 17;
+            retriesComboBox.SelectedIndexChanged += retriesComboBox_SelectedIndexChanged;
             // 
             // toggleAdvancedButton
             // 
-            this.toggleAdvancedButton.BackColor = System.Drawing.Color.Transparent;
-            this.toggleAdvancedButton.FlatAppearance.BorderSize = 0;
-            this.toggleAdvancedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.toggleAdvancedButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toggleAdvancedButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(126)))), ((int)(((byte)(234)))));
-            this.toggleAdvancedButton.Location = new System.Drawing.Point(26, 415);
-            this.toggleAdvancedButton.Name = "toggleAdvancedButton";
-            this.toggleAdvancedButton.Size = new System.Drawing.Size(172, 39);
-            this.toggleAdvancedButton.TabIndex = 18;
-            this.toggleAdvancedButton.Text = "⚙️ Show Advanced Options";
-            this.toggleAdvancedButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toggleAdvancedButton.UseVisualStyleBackColor = false;
-            this.toggleAdvancedButton.Click += new System.EventHandler(this.toggleAdvancedButton_Click);
+            toggleAdvancedButton.BackColor = Color.Transparent;
+            toggleAdvancedButton.FlatAppearance.BorderSize = 0;
+            toggleAdvancedButton.FlatStyle = FlatStyle.Flat;
+            toggleAdvancedButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            toggleAdvancedButton.ForeColor = Color.FromArgb(102, 126, 234);
+            toggleAdvancedButton.Location = new Point(30, 479);
+            toggleAdvancedButton.Margin = new Padding(4, 3, 4, 3);
+            toggleAdvancedButton.Name = "toggleAdvancedButton";
+            toggleAdvancedButton.Size = new Size(201, 45);
+            toggleAdvancedButton.TabIndex = 18;
+            toggleAdvancedButton.Text = "⚙️ Show Advanced Options";
+            toggleAdvancedButton.TextAlign = ContentAlignment.MiddleLeft;
+            toggleAdvancedButton.UseVisualStyleBackColor = false;
+            toggleAdvancedButton.Click += toggleAdvancedButton_Click;
             // 
             // advancedOptions
             // 
-            this.advancedOptions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.advancedOptions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.advancedOptions.Controls.Add(this.waitTimeLabel);
-            this.advancedOptions.Controls.Add(this.waitTimeComboBox);
-            this.advancedOptions.Controls.Add(this.copyFlagsLabel);
-            this.advancedOptions.Controls.Add(this.copyFlagsComboBox);
-            this.advancedOptions.Location = new System.Drawing.Point(26, 451);
-            this.advancedOptions.Name = "advancedOptions";
-            this.advancedOptions.Size = new System.Drawing.Size(676, 78);
-            this.advancedOptions.TabIndex = 19;
-            this.advancedOptions.Visible = false;
+            advancedOptions.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            advancedOptions.BorderStyle = BorderStyle.FixedSingle;
+            advancedOptions.Controls.Add(waitTimeLabel);
+            advancedOptions.Controls.Add(waitTimeComboBox);
+            advancedOptions.Controls.Add(copyFlagsLabel);
+            advancedOptions.Controls.Add(copyFlagsComboBox);
+            advancedOptions.Location = new Point(30, 520);
+            advancedOptions.Margin = new Padding(4, 3, 4, 3);
+            advancedOptions.Name = "advancedOptions";
+            advancedOptions.Size = new Size(788, 90);
+            advancedOptions.TabIndex = 19;
+            advancedOptions.Visible = false;
             // 
             // waitTimeLabel
             // 
-            this.waitTimeLabel.AutoSize = true;
-            this.waitTimeLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.waitTimeLabel.Location = new System.Drawing.Point(9, 13);
-            this.waitTimeLabel.Name = "waitTimeLabel";
-            this.waitTimeLabel.Size = new System.Drawing.Size(193, 15);
-            this.waitTimeLabel.TabIndex = 0;
-            this.waitTimeLabel.Text = "Wait Time Between Retries (sec):";
+            waitTimeLabel.AutoSize = true;
+            waitTimeLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            waitTimeLabel.Location = new Point(10, 15);
+            waitTimeLabel.Margin = new Padding(4, 0, 4, 0);
+            waitTimeLabel.Name = "waitTimeLabel";
+            waitTimeLabel.Size = new Size(193, 15);
+            waitTimeLabel.TabIndex = 0;
+            waitTimeLabel.Text = "Wait Time Between Retries (sec):";
             // 
             // waitTimeComboBox
             // 
-            this.waitTimeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.waitTimeComboBox.FormattingEnabled = true;
-            this.waitTimeComboBox.Items.AddRange(new object[] {
-            "5",
-            "10",
-            "30",
-            "60"});
-            this.waitTimeComboBox.Location = new System.Drawing.Point(208, 11);
-            this.waitTimeComboBox.Name = "waitTimeComboBox";
-            this.waitTimeComboBox.Size = new System.Drawing.Size(103, 21);
-            this.waitTimeComboBox.TabIndex = 1;
-            this.waitTimeComboBox.SelectedIndexChanged += new System.EventHandler(this.waitTimeComboBox_SelectedIndexChanged);
+            waitTimeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            waitTimeComboBox.FormattingEnabled = true;
+            waitTimeComboBox.Items.AddRange(new object[] { "5", "10", "30", "60" });
+            waitTimeComboBox.Location = new Point(243, 13);
+            waitTimeComboBox.Margin = new Padding(4, 3, 4, 3);
+            waitTimeComboBox.Name = "waitTimeComboBox";
+            waitTimeComboBox.Size = new Size(119, 23);
+            waitTimeComboBox.TabIndex = 1;
+            waitTimeComboBox.SelectedIndexChanged += waitTimeComboBox_SelectedIndexChanged;
             // 
             // copyFlagsLabel
             // 
-            this.copyFlagsLabel.AutoSize = true;
-            this.copyFlagsLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.copyFlagsLabel.Location = new System.Drawing.Point(9, 43);
-            this.copyFlagsLabel.Name = "copyFlagsLabel";
-            this.copyFlagsLabel.Size = new System.Drawing.Size(67, 15);
-            this.copyFlagsLabel.TabIndex = 2;
-            this.copyFlagsLabel.Text = "Copy Flags:";
+            copyFlagsLabel.AutoSize = true;
+            copyFlagsLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            copyFlagsLabel.Location = new Point(10, 50);
+            copyFlagsLabel.Margin = new Padding(4, 0, 4, 0);
+            copyFlagsLabel.Name = "copyFlagsLabel";
+            copyFlagsLabel.Size = new Size(67, 15);
+            copyFlagsLabel.TabIndex = 2;
+            copyFlagsLabel.Text = "Copy Flags:";
             // 
             // copyFlagsComboBox
             // 
-            this.copyFlagsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.copyFlagsComboBox.FormattingEnabled = true;
-            this.copyFlagsComboBox.Items.AddRange(new object[] {
-            "DAT (Data, Attributes, Timestamps)",
-            "COPYALL (Everything)",
-            "DATA (Data only)"});
-            this.copyFlagsComboBox.Location = new System.Drawing.Point(82, 41);
-            this.copyFlagsComboBox.Name = "copyFlagsComboBox";
-            this.copyFlagsComboBox.Size = new System.Drawing.Size(258, 21);
-            this.copyFlagsComboBox.TabIndex = 3;
-            this.copyFlagsComboBox.SelectedIndexChanged += new System.EventHandler(this.copyFlagsComboBox_SelectedIndexChanged);
+            copyFlagsComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            copyFlagsComboBox.FormattingEnabled = true;
+            copyFlagsComboBox.Items.AddRange(new object[] { "DAT (Data, Attributes, Timestamps)", "COPYALL (Everything)", "DATA (Data only)" });
+            copyFlagsComboBox.Location = new Point(96, 47);
+            copyFlagsComboBox.Margin = new Padding(4, 3, 4, 3);
+            copyFlagsComboBox.Name = "copyFlagsComboBox";
+            copyFlagsComboBox.Size = new Size(300, 23);
+            copyFlagsComboBox.TabIndex = 3;
+            copyFlagsComboBox.SelectedIndexChanged += copyFlagsComboBox_SelectedIndexChanged;
             // 
             // commandPreviewLabel
             // 
-            this.commandPreviewLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.commandPreviewLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
-            this.commandPreviewLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.commandPreviewLabel.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.commandPreviewLabel.Location = new System.Drawing.Point(26, 532);
-            this.commandPreviewLabel.Name = "commandPreviewLabel";
-            this.commandPreviewLabel.Padding = new System.Windows.Forms.Padding(9);
-            this.commandPreviewLabel.Size = new System.Drawing.Size(676, 119);
-            this.commandPreviewLabel.TabIndex = 20;
-            this.commandPreviewLabel.Text = "Command: robocopy \"source\" \"destination\" /E /MT:8 /R:3 /W:30";
-            this.commandPreviewLabel.Click += new System.EventHandler(this.commandPreviewLabel_Click);
+            commandPreviewLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            commandPreviewLabel.BackColor = Color.FromArgb(248, 249, 250);
+            commandPreviewLabel.BorderStyle = BorderStyle.FixedSingle;
+            commandPreviewLabel.Font = new Font("Courier New", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            commandPreviewLabel.Location = new Point(30, 614);
+            commandPreviewLabel.Margin = new Padding(4, 0, 4, 0);
+            commandPreviewLabel.Name = "commandPreviewLabel";
+            commandPreviewLabel.Padding = new Padding(10, 10, 10, 10);
+            commandPreviewLabel.Size = new Size(788, 137);
+            commandPreviewLabel.TabIndex = 20;
+            commandPreviewLabel.Text = "Command: robocopy \"source\" \"destination\" /E /MT:8 /R:3 /W:30";
+            commandPreviewLabel.Click += commandPreviewLabel_Click;
             // 
             // startCopyButton
             // 
-            this.startCopyButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.startCopyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(153)))), ((int)(((byte)(142)))));
-            this.startCopyButton.FlatAppearance.BorderSize = 0;
-            this.startCopyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.startCopyButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startCopyButton.ForeColor = System.Drawing.Color.White;
-            this.startCopyButton.Location = new System.Drawing.Point(26, 654);
-            this.startCopyButton.Name = "startCopyButton";
-            this.startCopyButton.Size = new System.Drawing.Size(676, 43);
-            this.startCopyButton.TabIndex = 21;
-            this.startCopyButton.Text = "🚀 Start Copy Operation";
-            this.startCopyButton.UseVisualStyleBackColor = false;
-            this.startCopyButton.Click += new System.EventHandler(this.startCopyButton_Click);
+            startCopyButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            startCopyButton.BackColor = Color.FromArgb(17, 153, 142);
+            startCopyButton.FlatAppearance.BorderSize = 0;
+            startCopyButton.FlatStyle = FlatStyle.Flat;
+            startCopyButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            startCopyButton.ForeColor = Color.White;
+            startCopyButton.Location = new Point(30, 755);
+            startCopyButton.Margin = new Padding(4, 3, 4, 3);
+            startCopyButton.Name = "startCopyButton";
+            startCopyButton.Size = new Size(789, 50);
+            startCopyButton.TabIndex = 21;
+            startCopyButton.Text = "🚀 Start Copy Operation";
+            startCopyButton.UseVisualStyleBackColor = false;
+            startCopyButton.Click += startCopyButton_Click;
             // 
             // progressContainer
             // 
-            this.progressContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressContainer.Controls.Add(this.progressHeaderLabel);
-            this.progressContainer.Controls.Add(this.progressBar);
-            this.progressContainer.Controls.Add(this.progressLabel);
-            this.progressContainer.Location = new System.Drawing.Point(26, 706);
-            this.progressContainer.Name = "progressContainer";
-            this.progressContainer.Size = new System.Drawing.Size(676, 69);
-            this.progressContainer.TabIndex = 22;
-            this.progressContainer.Visible = false;
+            progressContainer.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            progressContainer.Controls.Add(progressHeaderLabel);
+            progressContainer.Controls.Add(progressBar);
+            progressContainer.Controls.Add(progressLabel);
+            progressContainer.Location = new Point(30, 815);
+            progressContainer.Margin = new Padding(4, 3, 4, 3);
+            progressContainer.Name = "progressContainer";
+            progressContainer.Size = new Size(789, 80);
+            progressContainer.TabIndex = 22;
+            progressContainer.Visible = false;
             // 
             // progressHeaderLabel
             // 
-            this.progressHeaderLabel.AutoSize = true;
-            this.progressHeaderLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.progressHeaderLabel.Location = new System.Drawing.Point(3, 4);
-            this.progressHeaderLabel.Name = "progressHeaderLabel";
-            this.progressHeaderLabel.Size = new System.Drawing.Size(85, 15);
-            this.progressHeaderLabel.TabIndex = 0;
-            this.progressHeaderLabel.Text = "Copy Progress";
+            progressHeaderLabel.AutoSize = true;
+            progressHeaderLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            progressHeaderLabel.Location = new Point(4, 5);
+            progressHeaderLabel.Margin = new Padding(4, 0, 4, 0);
+            progressHeaderLabel.Name = "progressHeaderLabel";
+            progressHeaderLabel.Size = new Size(85, 15);
+            progressHeaderLabel.TabIndex = 0;
+            progressHeaderLabel.Text = "Copy Progress";
             // 
             // progressBar
             // 
-            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(229)))), ((int)(((byte)(233)))));
-            this.progressBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.progressBar.Controls.Add(this.progressFill);
-            this.progressBar.Location = new System.Drawing.Point(0, 22);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(676, 22);
-            this.progressBar.TabIndex = 1;
+            progressBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            progressBar.BackColor = Color.FromArgb(225, 229, 233);
+            progressBar.BorderStyle = BorderStyle.FixedSingle;
+            progressBar.Controls.Add(progressFill);
+            progressBar.Location = new Point(0, 25);
+            progressBar.Margin = new Padding(4, 3, 4, 3);
+            progressBar.Name = "progressBar";
+            progressBar.Size = new Size(788, 25);
+            progressBar.TabIndex = 1;
             // 
             // progressFill
             // 
-            this.progressFill.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(153)))), ((int)(((byte)(142)))));
-            this.progressFill.Dock = System.Windows.Forms.DockStyle.Left;
-            this.progressFill.Location = new System.Drawing.Point(0, 0);
-            this.progressFill.Name = "progressFill";
-            this.progressFill.Size = new System.Drawing.Size(0, 20);
-            this.progressFill.TabIndex = 0;
+            progressFill.BackColor = Color.FromArgb(17, 153, 142);
+            progressFill.Dock = DockStyle.Left;
+            progressFill.Location = new Point(0, 0);
+            progressFill.Margin = new Padding(4, 3, 4, 3);
+            progressFill.Name = "progressFill";
+            progressFill.Size = new Size(0, 23);
+            progressFill.TabIndex = 0;
             // 
             // progressLabel
             // 
-            this.progressLabel.AutoSize = true;
-            this.progressLabel.Location = new System.Drawing.Point(3, 48);
-            this.progressLabel.Name = "progressLabel";
-            this.progressLabel.Size = new System.Drawing.Size(99, 13);
-            this.progressLabel.TabIndex = 2;
-            this.progressLabel.Text = "Preparing to copy...";
+            progressLabel.AutoSize = true;
+            progressLabel.Location = new Point(4, 55);
+            progressLabel.Margin = new Padding(4, 0, 4, 0);
+            progressLabel.Name = "progressLabel";
+            progressLabel.Size = new Size(110, 15);
+            progressLabel.TabIndex = 2;
+            progressLabel.Text = "Preparing to copy...";
             // 
             // logContainer
             // 
-            this.logContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.logContainer.Controls.Add(this.logHeaderLabel);
-            this.logContainer.Controls.Add(this.logOutputTextBox);
-            this.logContainer.Location = new System.Drawing.Point(26, 784);
-            this.logContainer.Name = "logContainer";
-            this.logContainer.Size = new System.Drawing.Size(676, 173);
-            this.logContainer.TabIndex = 23;
-            this.logContainer.Visible = false;
+            logContainer.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            logContainer.Controls.Add(logHeaderLabel);
+            logContainer.Controls.Add(logOutputTextBox);
+            logContainer.Location = new Point(30, 905);
+            logContainer.Margin = new Padding(4, 3, 4, 3);
+            logContainer.Name = "logContainer";
+            logContainer.Size = new Size(789, 200);
+            logContainer.TabIndex = 23;
+            logContainer.Visible = false;
             // 
             // logHeaderLabel
             // 
-            this.logHeaderLabel.AutoSize = true;
-            this.logHeaderLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logHeaderLabel.Location = new System.Drawing.Point(3, 4);
-            this.logHeaderLabel.Name = "logHeaderLabel";
-            this.logHeaderLabel.Size = new System.Drawing.Size(57, 15);
-            this.logHeaderLabel.TabIndex = 1;
-            this.logHeaderLabel.Text = "Copy Log";
+            logHeaderLabel.AutoSize = true;
+            logHeaderLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            logHeaderLabel.Location = new Point(4, 5);
+            logHeaderLabel.Margin = new Padding(4, 0, 4, 0);
+            logHeaderLabel.Name = "logHeaderLabel";
+            logHeaderLabel.Size = new Size(57, 15);
+            logHeaderLabel.TabIndex = 1;
+            logHeaderLabel.Text = "Copy Log";
             // 
             // logOutputTextBox
             // 
-            this.logOutputTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.logOutputTextBox.BackColor = System.Drawing.Color.Black;
-            this.logOutputTextBox.Font = new System.Drawing.Font("Courier New", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logOutputTextBox.ForeColor = System.Drawing.Color.Lime;
-            this.logOutputTextBox.Location = new System.Drawing.Point(0, 22);
-            this.logOutputTextBox.Multiline = true;
-            this.logOutputTextBox.Name = "logOutputTextBox";
-            this.logOutputTextBox.ReadOnly = true;
-            this.logOutputTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.logOutputTextBox.Size = new System.Drawing.Size(676, 117);
-            this.logOutputTextBox.TabIndex = 0;
+            logOutputTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            logOutputTextBox.BackColor = Color.Black;
+            logOutputTextBox.Font = new Font("Courier New", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            logOutputTextBox.ForeColor = Color.Lime;
+            logOutputTextBox.Location = new Point(0, 25);
+            logOutputTextBox.Margin = new Padding(4, 3, 4, 3);
+            logOutputTextBox.Multiline = true;
+            logOutputTextBox.Name = "logOutputTextBox";
+            logOutputTextBox.ReadOnly = true;
+            logOutputTextBox.ScrollBars = ScrollBars.Vertical;
+            logOutputTextBox.Size = new Size(788, 134);
+            logOutputTextBox.TabIndex = 0;
             // 
             // statusPanel
             // 
-            this.statusPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.statusPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.statusPanel.BorderColor = System.Drawing.Color.Gray;
-            this.statusPanel.BorderRadius = 10;
-            this.statusPanel.BorderSize = 2;
-            this.statusPanel.Controls.Add(this.statusLabel);
-            this.statusPanel.Location = new System.Drawing.Point(26, 919);
-            this.statusPanel.Name = "statusPanel";
-            this.statusPanel.Size = new System.Drawing.Size(676, 43);
-            this.statusPanel.TabIndex = 24;
-            this.statusPanel.Visible = false;
+            statusPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            statusPanel.BackColor = SystemColors.Control;
+            statusPanel.BorderColor = Color.Gray;
+            statusPanel.BorderRadius = 10;
+            statusPanel.BorderSize = 2;
+            statusPanel.Controls.Add(statusLabel);
+            statusPanel.Location = new Point(30, 1060);
+            statusPanel.Margin = new Padding(4, 3, 4, 3);
+            statusPanel.Name = "statusPanel";
+            statusPanel.Size = new Size(789, 50);
+            statusPanel.TabIndex = 24;
+            statusPanel.Visible = false;
             // 
             // statusLabel
             // 
-            this.statusLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.statusLabel.Location = new System.Drawing.Point(0, 0);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(676, 43);
-            this.statusLabel.TabIndex = 0;
-            this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            statusLabel.Dock = DockStyle.Fill;
+            statusLabel.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            statusLabel.Location = new Point(0, 0);
+            statusLabel.Margin = new Padding(4, 0, 4, 0);
+            statusLabel.Name = "statusLabel";
+            statusLabel.Size = new Size(789, 50);
+            statusLabel.TabIndex = 0;
+            statusLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(75)))), ((int)(((byte)(162)))));
-            this.ClientSize = new System.Drawing.Size(784, 933);
-            this.Controls.Add(this.mainContainer);
-            this.Name = "MainForm";
-            this.Padding = new System.Windows.Forms.Padding(17);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
-            this.Text = "Robocopy File Copier";
-            this.mainContainer.ResumeLayout(false);
-            this.mainContainer.PerformLayout();
-            this.filePatternGroup.ResumeLayout(false);
-            this.filePatternGroup.PerformLayout();
-            this.advancedOptions.ResumeLayout(false);
-            this.advancedOptions.PerformLayout();
-            this.progressContainer.ResumeLayout(false);
-            this.progressContainer.PerformLayout();
-            this.progressBar.ResumeLayout(false);
-            this.logContainer.ResumeLayout(false);
-            this.logContainer.PerformLayout();
-            this.statusPanel.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(118, 75, 162);
+            ClientSize = new Size(915, 1061);
+            Controls.Add(mainContainer);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "MainForm";
+            Padding = new Padding(20, 20, 20, 20);
+            StartPosition = FormStartPosition.WindowsDefaultBounds;
+            Text = "Robocopy File Copier";
+            mainContainer.ResumeLayout(false);
+            mainContainer.PerformLayout();
+            filePatternGroup.ResumeLayout(false);
+            filePatternGroup.PerformLayout();
+            advancedOptions.ResumeLayout(false);
+            advancedOptions.PerformLayout();
+            progressContainer.ResumeLayout(false);
+            progressContainer.PerformLayout();
+            progressBar.ResumeLayout(false);
+            logContainer.ResumeLayout(false);
+            logContainer.PerformLayout();
+            statusPanel.ResumeLayout(false);
+            ResumeLayout(false);
 
         }
     }
