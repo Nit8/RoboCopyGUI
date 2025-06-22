@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -28,6 +29,9 @@ namespace RoboCopyGUI
         private const int AdvancedOptionsAnimationStepMax = 12; // Maximum pixels per tick
         private const int AdvancedOptionsAnimationInterval = 8; // ms, lower is smoother
 
+        private readonly StringBuilder logBuffer = new();
+        private System.Windows.Forms.Timer logFlushTimer;
+
         public MainForm()
         {
             loggerService.LogInfo("Application started");
@@ -52,6 +56,11 @@ namespace RoboCopyGUI
             advancedOptionsTimer = new System.Windows.Forms.Timer();
             advancedOptionsTimer.Interval = AdvancedOptionsAnimationInterval;
             advancedOptionsTimer.Tick += AdvancedOptionsTimer_Tick;
+
+            logFlushTimer = new System.Windows.Forms.Timer();
+            logFlushTimer.Interval = 100; // ms
+            logFlushTimer.Tick += (s, e) => FlushLogBuffer();
+            logFlushTimer.Start();
         }
 
         private void InitializeForm()
@@ -309,16 +318,13 @@ namespace RoboCopyGUI
             if (enableLoggingCheckBox.Checked)
             {
                 if (copiedFiles < totalFiles * 0.2 && logOutputTextBox.Lines.Length < 3)
-                    logOutputTextBox.AppendText("→ Scanning source files..." + Environment.NewLine);
+                    AppendLog("→ Scanning source files...");
                 else if (copiedFiles < totalFiles * 0.4 && logOutputTextBox.Lines.Length < 4)
-                    logOutputTextBox.AppendText("→ Creating destination directories..." + Environment.NewLine);
+                    AppendLog("→ Creating destination directories...");
                 else if (copiedFiles < totalFiles * 0.6 && logOutputTextBox.Lines.Length < 5)
-                    logOutputTextBox.AppendText("→ Copying files..." + Environment.NewLine);
+                    AppendLog("→ Copying files...");
                 else if (copiedFiles < totalFiles * 0.8 && logOutputTextBox.Lines.Length < 6)
-                    logOutputTextBox.AppendText("→ Verifying copied files..." + Environment.NewLine);
-
-                logOutputTextBox.SelectionStart = logOutputTextBox.Text.Length;
-                logOutputTextBox.ScrollToCaret();
+                    AppendLog("→ Verifying copied files...");
             }
         }
 
@@ -331,8 +337,8 @@ namespace RoboCopyGUI
 
             if (enableLoggingCheckBox.Checked)
             {
-                logOutputTextBox.AppendText("→ Copy operation completed successfully!" + Environment.NewLine);
-                logOutputTextBox.AppendText("→ All files copied without errors." + Environment.NewLine);
+                AppendLog("→ Copy operation completed successfully!");
+                AppendLog("→ All files copied without errors.");
             }
 
             ShowStatus("Copy operation completed successfully! ✅", StatusType.Success);
@@ -390,11 +396,7 @@ namespace RoboCopyGUI
                 {
                     if (!string.IsNullOrEmpty(e.Data))
                     {
-                        Invoke(new Action(() =>
-                        {
-                            logOutputTextBox.AppendText(e.Data + Environment.NewLine);
-                            logOutputTextBox.ScrollToCaret();
-                        }));
+                        AppendLog(e.Data);
                     }
                 };
 
@@ -402,11 +404,7 @@ namespace RoboCopyGUI
                 {
                     if (!string.IsNullOrEmpty(e.Data))
                     {
-                        Invoke(new Action(() =>
-                        {
-                            logOutputTextBox.AppendText("ERROR: " + e.Data + Environment.NewLine);
-                            logOutputTextBox.ScrollToCaret();
-                        }));
+                        AppendLog("ERROR: " + e.Data);
                     }
                 };
 
@@ -688,6 +686,27 @@ namespace RoboCopyGUI
                     advancedOptionsTimer.Stop();
                 }
             }
+        }
+
+        private void AppendLog(string text)
+        {
+            lock (logBuffer)
+            {
+                logBuffer.AppendLine(text);
+            }
+        }
+
+        private void FlushLogBuffer()
+        {
+            string toAppend;
+            lock (logBuffer)
+            {
+                if (logBuffer.Length == 0) return;
+                toAppend = logBuffer.ToString();
+                logBuffer.Clear();
+            }
+            logOutputTextBox.AppendText(toAppend);
+            logOutputTextBox.ScrollToCaret();
         }
     }
 }
